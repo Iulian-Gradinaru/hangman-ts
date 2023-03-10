@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Title } from '../Title/Title';
 import { Images } from '../Images/Images';
 import { Keyboard } from '../Keyboard/Keyboard';
@@ -10,27 +10,29 @@ const getWord = () => {
 };
 
 export const Game = () => {
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [wordToGuess, setWordToGuess] = useState(getWord);
-  const incorrectLetters = guessedLetters.filter(
-    (letter) => !wordToGuess.includes(letter)
-  );
+  const [lettersPressed, setLettersPressed] = useState([]);
+  const [wordToGuess, setWordToGuess] = useState('');
 
-  const isLoser = incorrectLetters.length >= 6;
-  const isWinner = wordToGuess
-    .split('')
-    .every((letter) => guessedLetters.includes(letter));
+  useEffect(() => {
+    setWordToGuess(getWord());
+  }, []);
+
+  // const handleClick = (letter) => {
+  //   if (lettersPressed.includes(letter)) return;
+  //   setLettersPressed((currentState) => {
+  //     return [...currentState, letter];
+  //   });
+  // };
 
   return (
     <>
       <Title />
-      <Images />
-      <Word
-        guessedLetters={guessedLetters}
-        wordToGuess={wordToGuess}
-        reveal={isLoser}
+      <Images numberOfMistakes={0} />
+      <Word wordToGuess={wordToGuess} lettersPressed={lettersPressed} />
+      <Keyboard
+        setLettersPressed={setLettersPressed}
+        lettersPressed={lettersPressed}
       />
-      <Keyboard />
     </>
   );
 };

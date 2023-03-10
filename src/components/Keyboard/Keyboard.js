@@ -1,18 +1,23 @@
 import React from 'react';
 import './Keyboard.css';
 
-// const leters = ['abcdefghijklmnopqrstuvwxyz'];
+export const Keyboard = (props) => {
+  const { lettersPressed, setLettersPressed } = props;
 
-export const Keyboard = () => {
-  return 'abcdefghijklmnopqrstuvwxyz'.split('').map((ltr) => (
+  const handleClick = (letter) => {
+    if (lettersPressed.includes(letter)) return;
+    setLettersPressed((currentState) => {
+      return [...currentState, letter];
+    });
+  };
+
+  return 'abcdefghijklmnopqrstuvwxyz'.split('').map((letter, index) => (
     <button
+      onClick={() => handleClick(letter)}
       className="keyboard"
-      key={ltr}
-      value={ltr}
-      // onClick={handleGuess}
-      // disabled={guessed.has(ltr)}
+      key={index}
     >
-      {ltr}
+      {letter}
     </button>
   ));
 };

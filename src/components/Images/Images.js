@@ -9,10 +9,11 @@ import img6 from '../Images/6.jpg';
 
 const Image = [img0, img1, img2, img3, img4, img5, img6];
 
-export const Images = () => {
+export const Images = (props) => {
+  const { numberOfMistakes } = props;
   return (
     <div>
-      <img src={img0} alt={'img'} />
+      <img src={Image[numberOfMistakes]} alt={'img'} />
     </div>
   );
 };
