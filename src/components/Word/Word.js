@@ -1,10 +1,7 @@
 import React from 'react';
 
 export const Word = (props) => {
-  const { wordToGuess, lettersPressed } = props;
-  const formatLetter = (letter) => {
-    return lettersPressed.includes(letter) ? letter : '_';
-  };
+  const { wordToGuess, lettersPressed, formatLetter } = props;
 
   const renderWord = () => {
     return wordToGuess.split('').map((letter, index) => {

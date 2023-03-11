@@ -13,22 +13,23 @@ export const Game = () => {
   const [lettersPressed, setLettersPressed] = useState([]);
   const [wordToGuess, setWordToGuess] = useState('');
 
+  const formatLetter = (letter) => {
+    return lettersPressed.includes(letter) ? letter : '_';
+  };
+
   useEffect(() => {
     setWordToGuess(getWord());
   }, []);
-
-  // const handleClick = (letter) => {
-  //   if (lettersPressed.includes(letter)) return;
-  //   setLettersPressed((currentState) => {
-  //     return [...currentState, letter];
-  //   });
-  // };
 
   return (
     <>
       <Title />
       <Images numberOfMistakes={0} />
-      <Word wordToGuess={wordToGuess} lettersPressed={lettersPressed} />
+      <Word
+        wordToGuess={wordToGuess}
+        lettersPressed={lettersPressed}
+        formatLetter={formatLetter}
+      />
       <Keyboard
         setLettersPressed={setLettersPressed}
         lettersPressed={lettersPressed}
