@@ -1,3 +1,20 @@
+import React from 'react';
+
+export const Word = (props) => {
+  const { wordToGuess, formatLetter } = props;
+
+  const renderWord = () => {
+    return wordToGuess.split('').map((letter, index) => {
+      return (
+        <span style={{ letterSpacing: '0.75em' }} key={index}>
+          {formatLetter(letter, index)}
+        </span>
+      );
+    });
+  };
+
+  return <div>{renderWord()}</div>;
+};
 import React, { useEffect, useState } from 'react';
 import { Title } from '../Title/Title';
 import { Images } from '../Images/Images';
@@ -12,28 +29,71 @@ const getWord = () => {
 export const Game = () => {
   const [lettersPressed, setLettersPressed] = useState([]);
   const [wordToGuess, setWordToGuess] = useState('');
-
-  const formatLetter = (letter) => {
-    return lettersPressed.includes(letter) ? letter : '_';
-  };
+  const [numberOfMistakes, setNumberOfMistakes] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [isWinner, setIsWinner] = useState(false);
 
   useEffect(() => {
     setWordToGuess(getWord());
   }, []);
 
+  const formatLetter = (letter, index) => {
+    if (index === 0) return letter;
+    if (wordToGuess.length - 1 === index) return letter;
+    return lettersPressed.includes(letter) ? letter : '_';
+  };
+
+  useEffect(() => {
+    if (wordToGuess.length > 0 && lettersPressed.length > 0) {
+      const isWinner = wordToGuess
+        .split('')
+        .every((letter) => lettersPressed.includes(letter));
+      if (isWinner) {
+        setIsWinner(true);
+        setGameOver(true);
+      }
+    }
+    // eslint-disable-next-line
+  }, [lettersPressed, wordToGuess]);
+
+  useEffect(() => {
+    if (numberOfMistakes >= 6) {
+      setGameOver(true);
+    }
+  }, [numberOfMistakes]);
+
+  const handleClick = (letter) => {
+    if (lettersPressed.includes(letter) || gameOver) return;
+    setLettersPressed((currentState) => {
+      return [...currentState, letter];
+    });
+    if (!wordToGuess.split('').includes(letter)) {
+      setNumberOfMistakes((currentState) => (currentState += 1));
+    }
+  };
+
+  const handleResetGame = () => {
+    setLettersPressed([]);
+    setWordToGuess(getWord());
+    setGameOver(false);
+    setNumberOfMistakes(0);
+    setIsWinner(false);
+  };
+
   return (
     <>
       <Title />
-      <Images numberOfMistakes={0} />
+      {gameOver && !isWinner && <h1>gameOver</h1>}
+      {isWinner && <h1>YOU WON</h1>}
+      <Images numberOfMistakes={numberOfMistakes} />
       <Word
         wordToGuess={wordToGuess}
         lettersPressed={lettersPressed}
         formatLetter={formatLetter}
       />
-      <Keyboard
-        setLettersPressed={setLettersPressed}
-        lettersPressed={lettersPressed}
-      />
+      {!gameOver && <Keyboard onClick={handleClick} />}
+      <hr />
+      <button onClick={handleResetGame}>Reset</button>
     </>
   );
 };
