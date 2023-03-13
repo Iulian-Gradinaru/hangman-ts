@@ -10,8 +10,8 @@ const getWord = () => {
   return words[Math.floor(Math.random() * words.length)];
 };
 
-export const Game = () => {
-  const [lettersPressed, setLettersPressed] = useState([]);
+export const Game: React.FC = () => {
+  const [lettersPressed, setLettersPressed] = useState<string[]>([]);
   const [wordToGuess, setWordToGuess] = useState('');
   const [numberOfMistakes, setNumberOfMistakes] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -21,7 +21,7 @@ export const Game = () => {
     setWordToGuess(getWord());
   }, []);
 
-  const formatLetter = (letter, index) => {
+  const formatLetter = (letter: string, index: number) => {
     if (index === 0) return letter;
     if (wordToGuess.length - 1 === index) return letter;
     return lettersPressed.includes(letter) ? letter : '_';
@@ -55,7 +55,7 @@ export const Game = () => {
     }
   }, [numberOfMistakes]);
 
-  const handleClick = (letter) => {
+  const handleClick = (letter: string) => {
     if (lettersPressed.includes(letter) || gameOver) return;
     setLettersPressed((currentState) => {
       return [...currentState, letter];
@@ -80,11 +80,7 @@ export const Game = () => {
       <div>{isWinner && <h1>YOU WON</h1>}</div>
       <Images numberOfMistakes={numberOfMistakes} />
       <div>{`numbers of mistakes are : ${numberOfMistakes}`}</div>
-      <Word
-        wordToGuess={wordToGuess}
-        lettersPressed={lettersPressed}
-        formatLetter={formatLetter}
-      />
+      <Word wordToGuess={wordToGuess} formatLetter={formatLetter} />
       <div>{!gameOver && <Keyboard onClick={handleClick} />}</div>
       <button id="reset" onClick={handleResetGame}>
         Reset

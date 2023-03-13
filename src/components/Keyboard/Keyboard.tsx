@@ -1,7 +1,8 @@
 import React from 'react';
 import './Keyboard.css';
+import { KeyboardProps } from './Keyboard.types';
 
-export const Keyboard = (props) => {
+export const Keyboard: React.FC<KeyboardProps> = (props) => {
   const { onClick } = props;
   const buttonsKeyboard = 'abcdefghijklmnopqrstuvwxyz';
 

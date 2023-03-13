@@ -1,7 +1,8 @@
 import React from 'react';
 import './Word.css';
+import { WordProps } from './Word.types';
 
-export const Word = (props) => {
+export const Word: React.FC<WordProps> = (props) => {
   const { wordToGuess, formatLetter } = props;
 
   const renderWord = () => {
