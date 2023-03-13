@@ -1,6 +1,7 @@
 import React from 'react';
-import './Word.css';
+
 import { WordProps } from './Word.types';
+import { Container } from './Word.styled';
 
 export const Word: React.FC<WordProps> = (props) => {
   const { wordToGuess, formatLetter } = props;
@@ -11,5 +12,5 @@ export const Word: React.FC<WordProps> = (props) => {
     });
   };
 
-  return <div className="word">{renderWord()}</div>;
+  return <Container className="word">{renderWord()}</Container>;
 };

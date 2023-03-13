@@ -1,6 +1,6 @@
 import React from 'react';
-import './Title.css';
+import { Container } from './Title.styled';
 
 export const Title: React.FC = () => {
-  return <h1 className="title">Hangman</h1>;
+  return <Container className="title">Hangman</Container>;
 };
