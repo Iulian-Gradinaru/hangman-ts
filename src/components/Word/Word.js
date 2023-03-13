@@ -1,17 +1,14 @@
 import React from 'react';
+import './Word.css';
 
 export const Word = (props) => {
   const { wordToGuess, formatLetter } = props;
 
   const renderWord = () => {
     return wordToGuess.split('').map((letter, index) => {
-      return (
-        <span style={{ letterSpacing: '0.75em' }} key={index}>
-          {formatLetter(letter, index)}
-        </span>
-      );
+      return <span key={index}>{formatLetter(letter, index)}</span>;
     });
   };
 
-  return <div>{renderWord()}</div>;
+  return <div className="word">{renderWord()}</div>;
 };

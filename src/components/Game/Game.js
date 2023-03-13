@@ -1,26 +1,10 @@
-import React from 'react';
-
-export const Word = (props) => {
-  const { wordToGuess, formatLetter } = props;
-
-  const renderWord = () => {
-    return wordToGuess.split('').map((letter, index) => {
-      return (
-        <span style={{ letterSpacing: '0.75em' }} key={index}>
-          {formatLetter(letter, index)}
-        </span>
-      );
-    });
-  };
-
-  return <div>{renderWord()}</div>;
-};
 import React, { useEffect, useState } from 'react';
 import { Title } from '../Title/Title';
 import { Images } from '../Images/Images';
 import { Keyboard } from '../Keyboard/Keyboard';
 import { Word } from '../Word/Word';
 import words from '../wordlist.json';
+import './Game.css';
 
 const getWord = () => {
   return words[Math.floor(Math.random() * words.length)];
@@ -57,6 +41,15 @@ export const Game = () => {
   }, [lettersPressed, wordToGuess]);
 
   useEffect(() => {
+    if (wordToGuess.length > 0 && lettersPressed.length < 1) {
+      const firstLetter = wordToGuess[0];
+      const lastLetter = wordToGuess[wordToGuess.length - 1];
+      setLettersPressed([firstLetter, lastLetter]);
+    }
+    // eslint-disable-next-line
+  }, [wordToGuess]);
+
+  useEffect(() => {
     if (numberOfMistakes >= 6) {
       setGameOver(true);
     }
@@ -81,19 +74,21 @@ export const Game = () => {
   };
 
   return (
-    <>
+    <div className="hangman">
       <Title />
-      {gameOver && !isWinner && <h1>gameOver</h1>}
-      {isWinner && <h1>YOU WON</h1>}
+      <div>{gameOver && !isWinner && <h1>You Lose</h1>}</div>
+      <div>{isWinner && <h1>YOU WON</h1>}</div>
       <Images numberOfMistakes={numberOfMistakes} />
+      <div>{`numbers of mistakes are : ${numberOfMistakes}`}</div>
       <Word
         wordToGuess={wordToGuess}
         lettersPressed={lettersPressed}
         formatLetter={formatLetter}
       />
-      {!gameOver && <Keyboard onClick={handleClick} />}
-      <hr />
-      <button onClick={handleResetGame}>Reset</button>
-    </>
+      <div>{!gameOver && <Keyboard onClick={handleClick} />}</div>
+      <button id="reset" onClick={handleResetGame}>
+        Reset
+      </button>
+    </div>
   );
 };
