@@ -1,12 +1,22 @@
 import React from 'react';
 
-import { Game } from './components/Game/Game';
-import './App.css';
+/**
+ * Imports styles
+ */
+import { AppContainer } from './App.styled';
 
+/**
+ * Imports components
+ */
+import { Game } from './components/Game/';
+
+/**
+ * Displays the component
+ */
 export const App: React.FC = () => {
   return (
-    <div className="App">
+    <AppContainer className="App">
       <Game />
-    </div>
+    </AppContainer>
   );
 };

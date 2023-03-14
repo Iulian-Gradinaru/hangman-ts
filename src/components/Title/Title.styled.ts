@@ -4,12 +4,11 @@
 import { styled } from '@mui/system';
 
 /**
- * Styles the Title
+ * Styles the Container
  */
 export const Container = styled('h1')(() => {
   return {
     fontSize: '4rem',
-    fontWeight: 100,
     marginBottom: '0.1em',
     marginTop: 0,
   };
