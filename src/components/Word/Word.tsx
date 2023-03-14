@@ -4,11 +4,21 @@ import { WordProps } from './Word.types';
 import { Container } from './Word.styled';
 
 export const Word: React.FC<WordProps> = (props) => {
-  const { wordToGuess, formatLetter } = props;
+  const { wordToGuess, formatLetter, gameOver, lettersPressed } = props;
 
   const renderWord = () => {
     return wordToGuess.split('').map((letter, index) => {
-      return <span key={index}>{formatLetter(letter, index)}</span>;
+      return (
+        <span
+          style={{
+            color:
+              gameOver && !lettersPressed.includes(letter) ? 'red' : 'dark',
+          }}
+          key={`${wordToGuess}_${index}`}
+        >
+          {formatLetter(letter, index)}
+        </span>
+      );
     });
   };
 

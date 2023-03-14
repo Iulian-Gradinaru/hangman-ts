@@ -9,6 +9,7 @@
 /* export const AppContainer = styled('div')(() => {
    return { */
 .App {
+  font-family: papyrus;
   text-align: center;
   height: 100%;
   display: flex;

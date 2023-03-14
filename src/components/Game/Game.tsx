@@ -3,12 +3,9 @@ import { Title } from '../Title/Title';
 import { Images } from '../Images/Images';
 import { Keyboard } from '../Keyboard/Keyboard';
 import { Word } from '../Word/Word';
-import words from '../wordlist.json';
+import { UseUtils } from '../../hooks';
 import './Game.css';
-
-const getWord = () => {
-  return words[Math.floor(Math.random() * words.length)];
-};
+import { HistoryItem } from './Game.types';
 
 export const Game: React.FC = () => {
   const [lettersPressed, setLettersPressed] = useState<string[]>([]);
@@ -16,13 +13,16 @@ export const Game: React.FC = () => {
   const [numberOfMistakes, setNumberOfMistakes] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const { getWord } = UseUtils();
 
   useEffect(() => {
     setWordToGuess(getWord());
+    // eslint-disable-next-line
   }, []);
 
   const formatLetter = (letter: string, index: number) => {
-    if (index === 0) return letter;
+    if (index === 0 || gameOver) return letter;
     if (wordToGuess.length - 1 === index) return letter;
     return lettersPressed.includes(letter) ? letter : '_';
   };
@@ -71,20 +71,43 @@ export const Game: React.FC = () => {
     setGameOver(false);
     setNumberOfMistakes(0);
     setIsWinner(false);
+    setHistory((currentState) => {
+      return [{ wordToGuess, isWinner, numberOfMistakes }, ...currentState];
+    });
   };
 
   return (
     <div className="hangman">
+      <button id="reset" onClick={handleResetGame}>
+        Reset
+      </button>
+      <div className="history">
+        <p>History</p>
+        {history.map((historyItem, index) => (
+          <div key={index}>
+            <div> word: {historyItem.wordToGuess}</div>
+            <div> MISTAKES: {historyItem.numberOfMistakes}</div>
+            <div> winner: {historyItem.isWinner ? 'yes' : 'no'}</div>
+          </div>
+        ))}
+      </div>
       <Title />
       <div>{gameOver && !isWinner && <h1>You Lose</h1>}</div>
       <div>{isWinner && <h1>YOU WON</h1>}</div>
       <Images numberOfMistakes={numberOfMistakes} />
-      <div>{`numbers of mistakes are : ${numberOfMistakes}`}</div>
-      <Word wordToGuess={wordToGuess} formatLetter={formatLetter} />
-      <div>{!gameOver && <Keyboard onClick={handleClick} />}</div>
-      <button id="reset" onClick={handleResetGame}>
-        Reset
-      </button>
+      <div className="mistakes">{`numbers of mistakes are : ${numberOfMistakes}`}</div>
+      <Word
+        wordToGuess={wordToGuess}
+        formatLetter={formatLetter}
+        gameOver={gameOver}
+        lettersPressed={lettersPressed}
+      />
+
+      <div>
+        {!gameOver && (
+          <Keyboard onClick={handleClick} lettersPressed={lettersPressed} />
+        )}
+      </div>
     </div>
   );
 };

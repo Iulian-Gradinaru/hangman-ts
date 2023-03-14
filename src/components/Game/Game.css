@@ -1,6 +1,7 @@
 .hangman {
+  position: relative;
   height: 100%;
-  width: 400px;
+  width: 1000px;
   color: black;
   text-align: center;
   zoom: 1.3;
@@ -33,6 +34,7 @@
 }
 
 #reset {
+  position: absolute;
   width: auto;
   display: block;
   margin-left: auto;
@@ -44,4 +46,24 @@
 }
 #reset:hover {
   background: #7b1fa2;
+}
+
+.history {
+  position: absolute;
+  left: auto;
+  width: 200px;
+  height: 300px;
+  margin: 120px;
+  color: #0097a7;
+  font-style: italic;
+  font-size: large;
+  font-weight: bold;
+  /* background-color: #ffffe0; */
+}
+
+.mistakes {
+  color: #0097a7;
+  font-style: italic;
+  font-size: large;
+  font-weight: bold;
 }
