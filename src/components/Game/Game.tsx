@@ -15,6 +15,7 @@ import { HistoryItem } from './Game.types';
 import { Title } from '../Title';
 import { Images } from '../Images';
 import { Keyboard } from '../Keyboard';
+import { History } from '../History';
 
 /**
  * Imports the word list
@@ -65,14 +66,6 @@ export const Game: React.FC = () => {
   const { getWord } = UseUtils();
 
   /**
-   * Handles the words guess
-   */
-  useEffect(() => {
-    setWordToGuess(getWord());
-    // eslint-disable-next-line
-  }, []);
-
-  /**
    * Handles the format letters
    */
   const formatLetter = (letter: string, index: number) => {
@@ -80,6 +73,41 @@ export const Game: React.FC = () => {
     if (wordToGuess.length - 1 === index) return letter;
     return lettersPressed.includes(letter) ? letter : '_';
   };
+
+  /**
+   * Handles the letters includes in array
+   */
+  const handleClick = (letter: string) => {
+    if (lettersPressed.includes(letter) || gameOver) return;
+    setLettersPressed((currentState) => {
+      return [...currentState, letter];
+    });
+    if (!wordToGuess.split('').includes(letter)) {
+      setNumberOfMistakes((currentState) => (currentState += 1));
+    }
+  };
+
+  /**
+   * Handles the reset game
+   */
+  const handleResetGame = () => {
+    setLettersPressed([]);
+    setWordToGuess(getWord());
+    setGameOver(false);
+    setNumberOfMistakes(0);
+    setIsWinner(false);
+    setHistory((currentState) => {
+      return [{ wordToGuess, isWinner, numberOfMistakes }, ...currentState];
+    });
+  };
+
+  /**
+   * Handles the words guess
+   */
+  useEffect(() => {
+    setWordToGuess(getWord());
+    // eslint-disable-next-line
+  }, []);
 
   /**
    * Handles the winner
@@ -118,48 +146,12 @@ export const Game: React.FC = () => {
     }
   }, [numberOfMistakes]);
 
-  /**
-   * Handles the letters includes in array
-   */
-  const handleClick = (letter: string) => {
-    if (lettersPressed.includes(letter) || gameOver) return;
-    setLettersPressed((currentState) => {
-      return [...currentState, letter];
-    });
-    if (!wordToGuess.split('').includes(letter)) {
-      setNumberOfMistakes((currentState) => (currentState += 1));
-    }
-  };
-
-  /**
-   * Handles the reset game
-   */
-  const handleResetGame = () => {
-    setLettersPressed([]);
-    setWordToGuess(getWord());
-    setGameOver(false);
-    setNumberOfMistakes(0);
-    setIsWinner(false);
-    setHistory((currentState) => {
-      return [{ wordToGuess, isWinner, numberOfMistakes }, ...currentState];
-    });
-  };
-
   return (
     <div className="hangman">
       <button id="reset" onClick={handleResetGame}>
         Reset
       </button>
-      <div className="history">
-        <p id="title-history">History:</p>
-        {history.map((historyItem, index) => (
-          <div key={index}>
-            <div> Word: {historyItem.wordToGuess}</div>
-            <div> Mistakes: {historyItem.numberOfMistakes}</div>
-            <div> Winner: {historyItem.isWinner ? 'yes' : 'no'}</div>
-          </div>
-        ))}
-      </div>
+      <History history={history} />
       <Title />
       <div className="winner">
         <div>{gameOver && !isWinner && <h1>You Lose!!!</h1>}</div>

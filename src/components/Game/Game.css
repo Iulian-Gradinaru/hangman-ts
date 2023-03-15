@@ -51,24 +51,6 @@
   background: rgb(174, 92, 5);
 }
 
-.history {
-  position: absolute;
-  left: auto;
-  width: 200px;
-  height: 300px;
-  margin: 120px;
-  color: rgb(255, 132, 0);
-  font-size: large;
-  font-weight: bold;
-  /* background-color: #ffffe0; */
-}
-
-#title-history {
-  text-decoration: underline;
-  color: rgb(255, 132, 0);
-  font-size: x-large;
-}
-
 .mistakes {
   color: rgb(255, 132, 0);
   /* font-style: italic; */
