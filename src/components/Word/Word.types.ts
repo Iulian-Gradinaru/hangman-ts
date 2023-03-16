@@ -7,3 +7,9 @@ export interface WordProps {
   gameOver: boolean;
   lettersPressed: string[];
 }
+
+export interface ColorLetterProps {
+  gameOver: boolean;
+  lettersPressed: string[];
+  letter: string;
+}

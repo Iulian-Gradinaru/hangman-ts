@@ -1,7 +1,7 @@
 /**
  * Imports array HanmanWords
  */
-import { HangmanWords } from '../../constants';
+import { HANGMAN_WORDS } from '../../constants';
 
 /**
  * Gets general utils
@@ -11,7 +11,7 @@ export const UseUtils = () => {
    * Return a random word from a list
    */
   const getWord = () => {
-    return HangmanWords[Math.floor(Math.random() * HangmanWords.length)];
+    return HANGMAN_WORDS[Math.floor(Math.random() * HANGMAN_WORDS.length)];
   };
 
   return { getWord };

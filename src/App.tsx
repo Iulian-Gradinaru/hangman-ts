@@ -15,7 +15,7 @@ import { Game } from './components/Game/';
  */
 export const App: React.FC = () => {
   return (
-    <AppContainer className="App">
+    <AppContainer>
       <Game />
     </AppContainer>
   );

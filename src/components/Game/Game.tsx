@@ -14,7 +14,7 @@ import { HistoryItem } from './Game.types';
  * Imports components
  */
 import { Title } from '../Title';
-import { Images } from '../Images';
+import { Drawing } from '../Images';
 import { Keyboard } from '../Keyboard';
 import { History } from '../History';
 import { Word } from '../Word';
@@ -155,7 +155,7 @@ export const Game: React.FC = () => {
         <div>{gameOver && !isWinner && <h1>You Lose!!!</h1>}</div>
         <div>{isWinner && <h1>You Won!!!</h1>}</div>
       </Winner>
-      <Images numberOfMistakes={numberOfMistakes} />
+      <Drawing numberOfMistakes={numberOfMistakes} />
       <Mistakes className="mistakes">{`Numbers of mistakes: ${numberOfMistakes}`}</Mistakes>
       <Word
         wordToGuess={wordToGuess}

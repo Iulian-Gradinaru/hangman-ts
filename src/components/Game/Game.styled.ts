@@ -82,7 +82,7 @@ export const Mistakes = styled('div')(() => {
 export const Winner = styled('div')(() => {
   return {
     color: 'red',
-    fontSize: 'x-large',
+    fontSize: 22,
     fontWeight: 'bold',
     margin: 0,
   };
