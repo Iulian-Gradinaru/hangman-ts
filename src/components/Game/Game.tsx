@@ -14,7 +14,7 @@ import { HistoryItem } from './Game.types';
  * Imports components
  */
 import { Title } from '../Title';
-import { Drawing } from '../Images';
+import { Drawing } from '../Drawing';
 import { Keyboard } from '../Keyboard';
 import { History } from '../History';
 import { Word } from '../Word';
