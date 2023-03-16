@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+
 /**
  * Imports styles
  */
-import './Game.css';
+import { Container, Mistakes, Winner } from './Game.styled';
 
 /**
  * Imports types
@@ -16,10 +17,6 @@ import { Title } from '../Title';
 import { Images } from '../Images';
 import { Keyboard } from '../Keyboard';
 import { History } from '../History';
-
-/**
- * Imports the word list
- */
 import { Word } from '../Word';
 
 /**
@@ -40,6 +37,7 @@ export const Game: React.FC = () => {
    * Initializes the word to guess
    */
   const [wordToGuess, setWordToGuess] = useState('');
+
   /**
    * Initializes the number of mistakes
    */
@@ -147,18 +145,18 @@ export const Game: React.FC = () => {
   }, [numberOfMistakes]);
 
   return (
-    <div className="hangman">
+    <Container className="hangman">
       <button id="reset" onClick={handleResetGame}>
         Reset
       </button>
       <History history={history} />
       <Title />
-      <div className="winner">
+      <Winner className="winner">
         <div>{gameOver && !isWinner && <h1>You Lose!!!</h1>}</div>
         <div>{isWinner && <h1>You Won!!!</h1>}</div>
-      </div>
+      </Winner>
       <Images numberOfMistakes={numberOfMistakes} />
-      <div className="mistakes">{`Numbers of mistakes: ${numberOfMistakes}`}</div>
+      <Mistakes className="mistakes">{`Numbers of mistakes: ${numberOfMistakes}`}</Mistakes>
       <Word
         wordToGuess={wordToGuess}
         formatLetter={formatLetter}
@@ -171,6 +169,6 @@ export const Game: React.FC = () => {
           <Keyboard onClick={handleClick} lettersPressed={lettersPressed} />
         )}
       </div>
-    </div>
+    </Container>
   );
 };

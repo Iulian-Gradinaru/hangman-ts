@@ -1,3 +1,6 @@
+/**
+ * Defines the HangmanWords
+ */
 export const HangmanWords = [
   'able',
   'about',

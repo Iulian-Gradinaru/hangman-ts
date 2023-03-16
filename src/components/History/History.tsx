@@ -1,9 +1,17 @@
 import React from 'react';
-
-import { HistoryProps } from './History.types';
-// import './History.css';
+/**
+ * Imports styled
+ */
 import { Container, Title, Display } from './History.styled';
 
+/**
+ * Imports types
+ */
+import { HistoryProps } from './History.types';
+
+/**
+ * Displays the component
+ */
 export const History: React.FC<HistoryProps> = (props) => {
   const { history } = props;
 

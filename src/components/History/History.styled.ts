@@ -13,20 +13,26 @@ export const Container = styled('div')(() => {
     width: 200,
     height: 300,
     margin: 70,
-    color: ' rgb(255, 132, 0)',
+    color: 'rgb(255, 132, 0)',
     fontSize: 'large',
     fontWeight: 'bold',
   };
 });
 
+/**
+ * Styles the Title
+ */
 export const Title = styled('p')(() => {
   return {
     textDecoration: 'underline',
-    color: ' rgb(255, 132, 0)',
-    fontSize: ' x-large',
+    color: 'rgb(255, 132, 0)',
+    fontSize: 'x-large',
   };
 });
 
+/**
+ * Styles the Display
+ */
 export const Display = styled('div')(() => {
   return {
     maxHeight: 350,
