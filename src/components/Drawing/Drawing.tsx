@@ -14,7 +14,7 @@ import rightLeg from './assets/rightLeg.jpg';
 /**
  * Imports styled
  */
-import { DrawingContainer } from './Drawing.styled';
+import { DrawingContainer, ContainerImg } from './Drawing.styled';
 
 /**
  * Imports types
@@ -29,12 +29,12 @@ const Image = [gallow, head, body, leftHand, rightHand, leftLeg, rightLeg];
 export const Drawing: React.FC<DrawingProps> = (props) => {
   const { numberOfMistakes } = props;
   return (
-    <div>
+    <ContainerImg className="container-img">
       <DrawingContainer
         className="img"
         src={Image[numberOfMistakes]}
         alt="img"
       />
-    </div>
+    </ContainerImg>
   );
 };

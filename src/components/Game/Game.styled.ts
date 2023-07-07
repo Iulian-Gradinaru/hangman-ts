@@ -50,26 +50,25 @@ export const Container = styled('div')(() => {
         },
       },
     },
+    '@media (max-width: 768px)': {
+      width: '100%',
+      height: '100%',
+      border: '2px solid blue',
+      marginTop: 10,
+      display: 'flex',
+      justifyContent: 'center',
+      // padding: 10,
+      flexDirection: 'column',
+      margin: 0,
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '89%',
+      border: '2px solid blue',
+    },
   };
 });
-
-// export const Reset = styled('button')(() => {
-//   return {
-//     '&#reset': {
-//       display: 'inline-block',
-//       position: 'absolute',
-//       width: 'auto',
-//       marginLeft: 122,
-//       marginTop: 123,
-//       background: 'rgb(255, 132, 0)',
-//       boxShadow: '0 6px rgb(174, 92, 5)',
-//       transform: 'rotate(-38deg)',
-//       '&:hover': {
-//         background: 'rgb(174, 92, 5)',
-//       },
-//     },
-//   };
-// });
 
 export const Mistakes = styled('div')(() => {
   return {

@@ -11,5 +11,16 @@ export const Container = styled('h1')(() => {
     fontSize: '4rem',
     marginBottom: '0.1em',
     marginTop: 0,
+    '@media (max-width: 768px)': {
+      width: '102%',
+      height: '50%',
+      border: '2px solid red',
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '50%',
+      border: '2px solid blue',
+    },
   };
 });

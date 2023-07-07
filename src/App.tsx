@@ -15,8 +15,10 @@ import { Game } from './components/Game/';
  */
 export const App: React.FC = () => {
   return (
-    <AppContainer>
-      <Game />
-    </AppContainer>
+    <>
+      <AppContainer className="app-container">
+        <Game />
+      </AppContainer>
+    </>
   );
 };

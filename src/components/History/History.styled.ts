@@ -16,6 +16,19 @@ export const Container = styled('div')(() => {
     color: 'rgb(255, 132, 0)',
     fontSize: 'large',
     fontWeight: 'bold',
+    '@media (max-width: 768px)': {
+      // width: '102%',
+      // height: '106%',
+      border: '2px solid red',
+      margin: 0,
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '89%',
+      border: '2px solid blue',
+      margin: 0,
+    },
   };
 });
 
