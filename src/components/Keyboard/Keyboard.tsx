@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Imports styled
  */
-import { Container } from './Keyboard.styled';
+import { Container, Button } from './Keyboard.styled';
 
 /**
  * Imports types
@@ -20,13 +20,14 @@ export const Keyboard: React.FC<KeyboardProps> = (props) => {
   return (
     <Container className="keyboard">
       {buttonsKeyboard.split('').map((letter, index) => (
-        <button
+        <Button
+          className="button"
           onClick={() => onClick(letter)}
           key={index}
           disabled={lettersPressed.includes(letter)}
         >
           {letter}
-        </button>
+        </Button>
       ))}
     </Container>
   );

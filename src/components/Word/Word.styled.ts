@@ -14,8 +14,8 @@ export const Container = styled('div')(() => {
     margin: '0.2em -1em 0.2em 0',
     fontSize: '2rem',
     '@media (max-width: 768px)': {
-      width: '102%',
-      height: '106%',
+      width: '100%',
+      height: '100%',
       border: '2px solid red',
     },
 

@@ -12,7 +12,7 @@ export const Container = styled('h1')(() => {
     marginBottom: '0.1em',
     marginTop: 0,
     '@media (max-width: 768px)': {
-      width: '102%',
+      width: '100%',
       height: '50%',
       border: '2px solid red',
     },
