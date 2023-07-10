@@ -20,8 +20,8 @@ export const Container = styled('div')(() => {
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
+      // width: '100%',
+      // height: '89%',
       border: '2px solid blue',
     },
   };
@@ -36,14 +36,14 @@ export const Button = styled('button')(() => {
     // marginBottom: 22,
     '@media (max-width: 768px)': {
       // width: '100%',
-      height: '29%',
+      // height: '29%',
       // border: '2px solid red',
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
-      border: '2px solid blue',
+      // width: '100%',
+      // height: '89%',
+      // border: '2px solid blue',
     },
   };
 });

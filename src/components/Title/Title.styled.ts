@@ -12,15 +12,15 @@ export const Container = styled('h1')(() => {
     marginBottom: '0.1em',
     marginTop: 0,
     '@media (max-width: 768px)': {
-      width: '100%',
-      height: '50%',
-      border: '2px solid red',
+      // width: '100%',
+      // height: '50%',
+      // border: '2px solid red',
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '50%',
-      border: '2px solid blue',
+      // width: '100%',
+      // height: '50%',
+      // border: '2px solid blue',
     },
   };
 });

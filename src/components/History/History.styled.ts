@@ -17,17 +17,17 @@ export const Container = styled('div')(() => {
     fontSize: 'large',
     fontWeight: 'bold',
     '@media (max-width: 768px)': {
-      width: '100%',
-      height: '111%',
-      border: '2px solid red',
-      margin: 0,
+      // width: '100%',
+      // height: '111%',
+      // border: '2px solid red',
+      // margin: 0,
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
-      border: '2px solid blue',
-      margin: 0,
+      // width: '100%',
+      // height: '89%',
+      // border: '2px solid blue',
+      // margin: 0,
     },
   };
 });
@@ -41,17 +41,16 @@ export const Title = styled('p')(() => {
     color: 'rgb(255, 132, 0)',
     fontSize: 'x-large',
     '@media (max-width: 768px)': {
-      width: '28%',
-      height: '36%',
-      border: '2px solid yellow',
-      marginTop: 133,
+      // width: '28%',
+      // height: '36%',
+      // border: '2px solid yellow',
+      // marginTop: 133,
     },
-
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
-      border: '2px solid yellow',
-      margin: 0,
+      // width: '100%',
+      // height: '89%',
+      // border: '2px solid yellow',
+      // margin: 0,
     },
   };
 });

@@ -8,12 +8,17 @@ import { styled } from '@mui/system';
  */
 export const Container = styled('div')(() => {
   return {
+    display: 'flex',
+    alignItem: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
     position: 'relative',
     height: '100%',
-    width: 1000,
+    width: '100%',
     color: 'black',
     textAlign: 'center',
-    zoom: '1.3',
+    // zoom: '1.3',
+
     '& button': {
       border: 'none',
       fontFamily: 'inherit',
@@ -51,20 +56,20 @@ export const Container = styled('div')(() => {
       },
     },
     '@media (max-width: 768px)': {
-      width: '100%',
-      height: '100%',
-      border: '2px solid blue',
-      marginTop: 10,
-      display: 'flex',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      margin: 0,
+      // width: '100%',
+      // height: '100%',
+      // border: '2px solid blue',
+      // marginTop: 10,
+      // display: 'flex',
+      // justifyContent: 'center',
+      // flexDirection: 'column',
+      // margin: 0,
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
-      border: '2px solid blue',
+      // width: '100%',
+      // height: '89%',
+      // border: '2px solid blue',
     },
   };
 });

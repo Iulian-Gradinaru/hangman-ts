@@ -10,9 +10,9 @@ html,
 
 @media (max-width: 768px) {
   .App {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     flex-direction: column;
     vertical-align: top;
     width: 86%;
@@ -22,9 +22,9 @@ html,
 
 @media (max-width: 391px) {
   .App {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     flex-direction: column;
     vertical-align: top;
     width: 100%;

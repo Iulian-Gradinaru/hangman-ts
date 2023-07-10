@@ -27,16 +27,16 @@ export const DrawingContainer = styled('img')(() => {
 export const ContainerImg = styled('div')(() => {
   return {
     '@media (max-width: 768px)': {
-      width: '41%',
-      height: '42%',
-      border: '2px solid red',
-      marginLeft: 164,
+      // width: '41%',
+      // height: '42%',
+      // border: '2px solid red',
+      // marginLeft: 164,
     },
 
     '@media (max-width: 391px)': {
-      width: '100%',
-      height: '89%',
-      border: '2px solid blue',
+      // width: '100%',
+      // height: '89%',
+      // border: '2px solid blue',
     },
   };
 });
