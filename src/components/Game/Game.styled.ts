@@ -2,11 +2,12 @@
  * Imports styled
  */
 import { styled } from '@mui/system';
+import { Box, Typography, Grid } from '@mui/material';
 
 /**
  * Styles the Container
  */
-export const Container = styled('div')(() => {
+export const Container = styled(Grid)(({ theme }) => {
   return {
     display: 'flex',
     alignItem: 'center',
@@ -45,7 +46,7 @@ export const Container = styled('div')(() => {
         display: 'inline-block',
         position: 'absolute',
         width: 'auto',
-        marginLeft: 122,
+        marginLeft: 183,
         marginTop: 123,
         background: 'rgb(255, 132, 0)',
         boxShadow: '0 6px rgb(174, 92, 5)',
@@ -54,35 +55,55 @@ export const Container = styled('div')(() => {
           background: 'rgb(174, 92, 5)',
         },
       },
+      '& > .history-container': {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+      },
+
+      '& > .image': {
+        /* Stilurile imaginii */
+      },
     },
-    '@media (max-width: 768px)': {
+    [theme.breakpoints.down('sm')]: {
       // width: '100%',
       // height: '100%',
       // border: '2px solid blue',
-      // marginTop: 10,
-      // display: 'flex',
+      display: 'flex',
+      // alignItems: 'center',
       // justifyContent: 'center',
-      // flexDirection: 'column',
-      // margin: 0,
+      // zoom: '1.2',
     },
 
-    '@media (max-width: 391px)': {
+    [theme.breakpoints.down('xs')]: {
       // width: '100%',
-      // height: '89%',
+      // height: '100%',
       // border: '2px solid blue',
+      display: 'flex',
+      // alignItems: 'center',
+      // justifyContent: 'center',
+      // zoom: '1',
     },
   };
 });
 
-export const Mistakes = styled('div')(() => {
+export const Mistakes = styled(Typography)(({ theme }) => {
   return {
-    color: 'rgb(255, 132, 0)',
+    color: 'red',
     fontSize: 'large',
     fontWeight: 'bold',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 28,
+      fontSize: 23,
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 20,
+      fontSize: 20,
+    },
   };
 });
 
-export const Winner = styled('div')(() => {
+export const Winner = styled(Box)(() => {
   return {
     color: 'red',
     fontSize: 22,
@@ -90,32 +111,3 @@ export const Winner = styled('div')(() => {
     margin: 0,
   };
 });
-
-// export const Button = styled('button')(() => {
-//   return {
-//     '@media (max-width: 768px)': {
-//       // width: '100%',
-//       // height: '100%',
-//       border: '2px solid blue',
-//       '&#reset': {
-//         display: 'inline-block',
-//         position: 'absolute',
-//         width: 'auto',
-//         marginLeft: 122,
-//         marginTop: 123,
-//         background: 'rgb(255, 132, 0)',
-//         boxShadow: '0 6px rgb(174, 92, 5)',
-//         transform: 'rotate(-38deg)',
-//         '&:hover': {
-//           background: 'rgb(174, 92, 5)',
-//         },
-//       },
-//     },
-
-//     '@media (max-width: 391px)': {
-//       width: '100%',
-//       height: '89%',
-//       border: '2px solid blue',
-//     },
-//   };
-// });

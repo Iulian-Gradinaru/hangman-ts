@@ -24,7 +24,10 @@ export const History: React.FC<HistoryProps> = (props) => {
         {history.map((historyItem: HistoryItem, index: number) => (
           <div key={index} style={{ marginBottom: '10px' }}>
             <div> Word: {historyItem.wordToGuess}</div>
-            <div> Mistakes: {historyItem.numberOfMistakes}</div>
+            <div className="mistakes">
+              {' '}
+              Mistakes: {historyItem.numberOfMistakes}
+            </div>
             <div> Winner: {historyItem.isWinner ? 'yes' : 'no'}</div>
           </div>
         ))}

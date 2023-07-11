@@ -17,17 +17,11 @@ export const Container = styled('div')(() => {
     fontSize: 'large',
     fontWeight: 'bold',
     '@media (max-width: 768px)': {
-      // width: '100%',
-      // height: '111%',
-      // border: '2px solid red',
-      // margin: 0,
+      marginLeft: 20,
     },
 
     '@media (max-width: 391px)': {
-      // width: '100%',
-      // height: '89%',
-      // border: '2px solid blue',
-      // margin: 0,
+      border: '2px solid blue',
     },
   };
 });

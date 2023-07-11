@@ -8,19 +8,28 @@ import { styled } from '@mui/system';
  */
 export const Container = styled('h1')(() => {
   return {
+    display: 'flex',
+    alingItem: 'center',
+    justifyContent: 'center',
     fontSize: '4rem',
     marginBottom: '0.1em',
     marginTop: 0,
     '@media (max-width: 768px)': {
-      // width: '100%',
-      // height: '50%',
-      // border: '2px solid red',
+      display: 'flex',
+      alingItem: 'center',
+      justifyContent: 'center',
+      fontSize: '4rem',
+      marginBottom: '0.1em',
+      marginTop: -130,
     },
 
     '@media (max-width: 391px)': {
-      // width: '100%',
-      // height: '50%',
-      // border: '2px solid blue',
+      display: 'flex',
+      alingItem: 'center',
+      justifyContent: 'center',
+      fontSize: '4rem',
+      marginBottom: '0.1em',
+      marginTop: -130,
     },
   };
 });
