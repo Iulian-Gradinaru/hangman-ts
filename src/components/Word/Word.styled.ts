@@ -1,7 +1,7 @@
 /**
  * Imports styled
  */
-import { styled } from '@mui/system';
+import { flexbox, styled } from '@mui/system';
 
 import { ColorLetterProps } from './Word.types';
 
@@ -10,19 +10,14 @@ import { ColorLetterProps } from './Word.types';
  */
 export const Container = styled('div')(() => {
   return {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     letterSpacing: '1em',
-    margin: '0.2em -1em 0.2em 0',
     fontSize: '2rem',
-    '@media (max-width: 768px)': {
-      // width: '100%',
-      // height: '100%',
-      // border: '2px solid red',
-    },
-
+    marginTop: -10,
     '@media (max-width: 391px)': {
-      // width: '100%',
-      // height: '89%',
-      // border: '2px solid blue',
+      marginTop: -20,
     },
   };
 });

@@ -2,7 +2,11 @@
  * Imports styled
  */
 import { styled } from '@mui/system';
-import { Box, Typography, Grid } from '@mui/material';
+
+/**
+ * Imports Material UI components
+ */
+import { Typography, Grid } from '@mui/material';
 
 /**
  * Styles the Container
@@ -18,7 +22,6 @@ export const Container = styled(Grid)(({ theme }) => {
     width: '100%',
     color: 'black',
     textAlign: 'center',
-    // zoom: '1.3',
 
     '& button': {
       border: 'none',
@@ -60,54 +63,51 @@ export const Container = styled(Grid)(({ theme }) => {
         left: 0,
         top: 0,
       },
-
-      '& > .image': {
-        /* Stilurile imaginii */
-      },
     },
     [theme.breakpoints.down('sm')]: {
-      // width: '100%',
-      // height: '100%',
-      // border: '2px solid blue',
       display: 'flex',
-      // alignItems: 'center',
-      // justifyContent: 'center',
-      // zoom: '1.2',
-    },
-
-    [theme.breakpoints.down('xs')]: {
-      // width: '100%',
-      // height: '100%',
-      // border: '2px solid blue',
-      display: 'flex',
-      // alignItems: 'center',
-      // justifyContent: 'center',
-      // zoom: '1',
+      '& button': {
+        '&#reset': {
+          display: 'flex',
+          position: 'absolute',
+          width: 'auto',
+          marginLeft: 239,
+          marginTop: 608,
+          marginRight: 30,
+          transform: 'rotate(0deg)',
+        },
+      },
     },
   };
 });
 
+/**
+ * Styles the Mistakes
+ */
 export const Mistakes = styled(Typography)(({ theme }) => {
   return {
     color: 'red',
-    fontSize: 'large',
+    fontSize: 'x-large',
     fontWeight: 'bold',
     [theme.breakpoints.down('sm')]: {
-      marginTop: 28,
-      fontSize: 23,
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginTop: 20,
-      fontSize: 20,
+      marginTop: 0,
+      fontSize: 30,
+      color: 'black',
     },
   };
 });
 
-export const Winner = styled(Box)(() => {
+/**
+ * Styles the Winner
+ */
+export const Winner = styled(Typography)(({ theme }) => {
   return {
     color: 'red',
-    fontSize: 22,
     fontWeight: 'bold',
     margin: 0,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 60,
+      marginBottom: 20,
+    },
   };
 });

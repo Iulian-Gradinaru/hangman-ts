@@ -21,7 +21,12 @@ export const Container = styled('div')(() => {
     },
 
     '@media (max-width: 391px)': {
-      border: '2px solid blue',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+      marginTop: -12,
+      height: 200,
     },
   };
 });
@@ -34,17 +39,8 @@ export const Title = styled('p')(() => {
     textDecoration: 'underline',
     color: 'rgb(255, 132, 0)',
     fontSize: 'x-large',
-    '@media (max-width: 768px)': {
-      // width: '28%',
-      // height: '36%',
-      // border: '2px solid yellow',
-      // marginTop: 133,
-    },
     '@media (max-width: 391px)': {
-      // width: '100%',
-      // height: '89%',
-      // border: '2px solid yellow',
-      // margin: 0,
+      marginTop: -43,
     },
   };
 });
@@ -56,5 +52,9 @@ export const Display = styled('div')(() => {
   return {
     maxHeight: 350,
     overflow: 'auto',
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '50%',
+    },
   };
 });

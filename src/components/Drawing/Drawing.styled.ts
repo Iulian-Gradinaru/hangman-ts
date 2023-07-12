@@ -4,31 +4,29 @@
 import { styled } from '@mui/system';
 
 /**
- * Styles the ImgContainer
+ * Styles the Drawing Container
  */
 export const DrawingContainer = styled('img')(() => {
   return {
-    // maxHeight: 260,
-    // width: 'auto',
-    border: '10px solid white',
     boxShadow: '0 10px 30px rgba(0, 0, 0, 0.27)',
-    '@media (max-width: 768px)': {},
-
-    '@media (max-width: 391px)': {},
+    '@media (max-width: 391px)': {
+      width: '50%',
+    },
   };
 });
 
+/**
+ * Styles the Container Img
+ */
 export const ContainerImg = styled('div')(() => {
   return {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media (max-width: 768px)': {
-      border: '2px solid red',
-    },
-
+    marginTop: -17,
     '@media (max-width: 391px)': {
-      border: '2px solid red',
+      width: '100%',
+      height: '100%',
     },
   };
 });
