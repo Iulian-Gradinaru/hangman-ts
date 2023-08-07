@@ -160,7 +160,7 @@ export const Game: React.FC = () => {
   }, [numberOfMistakes]);
 
   return (
-    <Container className="hangman">
+    <Container className="hangman iulian">
       <Grid item xs={12}>
         {!isMobile && <History history={history} />}{' '}
       </Grid>

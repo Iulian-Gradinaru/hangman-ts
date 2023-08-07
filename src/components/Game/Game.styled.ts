@@ -65,6 +65,7 @@ export const Container = styled(Grid)(({ theme }) => {
       },
     },
     [theme.breakpoints.down('sm')]: {
+      marginTop: 80,
       display: 'flex',
       '& button': {
         '&#reset': {
